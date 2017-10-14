@@ -10,18 +10,23 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MockitoWithRunner {
-	@Mock
-	EmployeeDetails mockEmployeeDetails;
-	@Spy
-	EmployeeDetails spy_ed = new EmployeeDetails("Karim", 1200.0, 22);
-
+	@Mock EmployeeDetails mockEmployeeDetails;
+	/*
+	//This will pass stand alone
+	@InjectMocks EmpBusinessLogic injectEbl;
+	@Test
+	public void testInject() {
+		doReturn(30.0).when(mockEmployeeDetails).getMonthlySalary();
+		assertEquals(injectEbl.calculateYearlySalary(), 360.0, 0);
+	}*/
 	@Test
 	public void testMocks() {
 		EmpBusinessLogic empBusinessLogic = new EmpBusinessLogic(mockEmployeeDetails);
 		when(mockEmployeeDetails.getMonthlySalary()).thenReturn(1.0);
 		assertEquals(empBusinessLogic.calculateYearlySalary(), 12, 0);
 	}
-
+	
+	@Spy EmployeeDetails spy_ed = new EmployeeDetails("Karim", 1200.0, 22);
 	@Test
 	public void testSpy() {
 		doNothing().when(spy_ed).anotherCrapFunction();
@@ -31,4 +36,6 @@ public class MockitoWithRunner {
 		// Does not call real function of ED
 		eb.callcCrapFunction();
 	}
+	
+
 }
