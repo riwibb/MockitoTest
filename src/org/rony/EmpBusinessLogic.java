@@ -35,4 +35,7 @@ public class EmpBusinessLogic {
 	public void callcCrapFunction() {
 		employeeDetails.anotherCrapFunction();
 	}
+	public void forceAgeChange(int age) {
+		this.employeeDetails.setAge(age);
+	}
 }
