@@ -2,6 +2,7 @@ package org.rony;
 
 public class EmpBusinessLogic {
 	private EmployeeDetails employeeDetails;
+
 	public EmpBusinessLogic(EmployeeDetails employeeDetails) {
 		this.employeeDetails = employeeDetails;
 	}
@@ -25,16 +26,20 @@ public class EmpBusinessLogic {
 
 		return appraisal;
 	}
+
 	public boolean dummyFunction() {
 		this.employeeDetails.grabString();
 		return true;
 	}
+
 	public void crapFunction() {
-		int m = 4/0;
+		int m = 4 / 0;
 	}
+
 	public void callcCrapFunction() {
 		employeeDetails.anotherCrapFunction();
 	}
+
 	public void forceAgeChange(int age) {
 		this.employeeDetails.setAge(age);
 	}
