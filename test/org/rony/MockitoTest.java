@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatchers;
 
 public class MockitoTest {
@@ -81,6 +82,13 @@ public class MockitoTest {
 		verify(mockEmployeeDetails, never()).setAge(ArgumentMatchers.eq(39));
 		verify(mockEmployeeDetails, atLeastOnce()).setAge(anyInt());
 		verifyNoMoreInteractions(mockEmployeeDetails);
+	}
+	@Test
+	public void testCaptor() {
+		ArgumentCaptor<String> arg = ArgumentCaptor.forClass(String.class);
+		empBusinessLogic.forceNamerChange("Collin");
+		verify(mockEmployeeDetails).setName(arg.capture());
+		assertEquals("Collin",arg.getValue());
 	}
 
 }

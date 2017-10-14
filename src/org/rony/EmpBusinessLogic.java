@@ -43,4 +43,8 @@ public class EmpBusinessLogic {
 	public void forceAgeChange(int age) {
 		this.employeeDetails.setAge(age);
 	}
+
+	public void forceNamerChange(String name) {
+		this.employeeDetails.setName(name);
+	}
 }
